@@ -22,8 +22,7 @@ void CursorDraw(HDC memdc, HWND win)
         const int y = (cursor.ptScreenPos.y - rect.top - rect.top - info.yHotspot);
         BITMAP bmpCursor = { 0 };
         GetObject(info.hbmColor, sizeof(bmpCursor), &bmpCursor);
-        DrawIconEx(memdc, x, y, cursor.hCursor, bmpCursor.bmWidth, bmpCursor.bmHeight,
-            0, NULL, DI_NORMAL);
+        DrawIconEx(memdc, x, y, cursor.hCursor, bmpCursor.bmWidth, bmpCursor.bmHeight,0, NULL, DI_NORMAL);
     }
 }
 inline void Cleaner(struct monitor_capture& mcArgh, HBITMAP& hbitmap, HGDIOBJ& oldbmp)
@@ -89,20 +88,20 @@ void MonitorCapture(SOCKET s)
 
             SetStretchBltMode(mcArgh.dc_receiver_comptbl, HALFTONE);
             StretchBlt(mcArgh.dc_receiver_comptbl,
-                0,
-                0,
-                mcArgh.width_paint_dc,
-                mcArgh.height_paint_dc,
-                mcArgh.dc_receiver,
-                0,
-                0,
-                mcArgh.cx_screen_width,
-                mcArgh.cy_screen_height,
-                SRCCOPY | CAPTUREBLT);
+                       0,
+                       0,
+                       mcArgh.width_paint_dc,
+                       mcArgh.height_paint_dc,
+                       mcArgh.dc_receiver,
+                       0,
+                       0,
+                       mcArgh.cx_screen_width,
+                       mcArgh.cy_screen_height,
+                       SRCCOPY | CAPTUREBLT);
 
             GetDIBits(mcArgh.dc_receiver_comptbl, hbitmap, 0, mcArgh.height_paint_dc, foo.data(), &mcArgh.bi, DIB_RGB_COLORS);
             res_send = send(s, foo.data(), count, 0);
-            std::cout << "bites in buffer" << res_send << std::endl;
+            //std::cout << "bites in buffer" << res_send << std::endl;
 
             Cleaner(mcArgh, hbitmap, oldbmp);
 
