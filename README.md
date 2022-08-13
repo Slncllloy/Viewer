@@ -7,6 +7,6 @@ Pragramm use TCP protocal and can send more then 6 000 000 bites per scriin flam
 
 Some problems: OS only Windows, Can register left mouse in console HWND
 
-For using programm go to Viewer/Realise/Viewer.exe
+For using programm go to Viewer/Release/Viewer.exe
 In client side you should write IPv4 of Enternet Adapter of server
 In server side just set value resolution
