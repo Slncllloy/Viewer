@@ -2,7 +2,7 @@
 #include <vector>
 #include <iostream>
 
-#define BITS_PER_PIX 3//set
+#define BITS_PER_PIX 3
 #define FAILED_SOCKET -1
 
 
