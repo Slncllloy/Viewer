@@ -64,19 +64,19 @@ void GetMonitorCapture(SOCKET s)
 		if (alg_res == SUCCESS_ALGR)
 		{
 			if (GDI_ERROR == StretchDIBits(upArgh.dc_WindowPaint,
-											0,
-											0,
-											upArgh.width_main_dc,
-											upArgh.height_main_dc,
-											0,
-											0,
-											upArgh.width_sourse_cupture,
-											upArgh.height_sourse_cupture,
-											Packet_bits_cupture.data(),
-											&upArgh.bi,
-											DIB_RGB_COLORS,
-											SRCCOPY))
-				std::cout << "StrtchDibBits = 0" << GetLastError() << std::endl;
+						        0,
+							0,
+							upArgh.width_main_dc,
+							upArgh.height_main_dc,
+							0,
+							0,
+							upArgh.width_sourse_cupture,
+							upArgh.height_sourse_cupture,
+							Packet_bits_cupture.data(),
+							&upArgh.bi,
+							DIB_RGB_COLORS,
+							SRCCOPY))
+			//std::cout << "StrtchDibBits = 0" << GetLastError() << std::endl;
 		}
 		Sleep(1);
 	}
