@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Исходные файлы">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Файлы заголовков">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Файлы ресурсов">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Файлы ресурсов\Client">
+      <UniqueIdentifier>{d210e156-f9ef-4265-9780-c944c2efaff7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы ресурсов\Server">
+      <UniqueIdentifier>{86ea4732-c83c-418f-8b39-52bb722d1b70}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Client\Client.cpp">
+      <Filter>Файлы ресурсов\Client</Filter>
+    </ClCompile>
+    <ClCompile Include="Client\Monitoring_side.cpp">
+      <Filter>Файлы ресурсов\Client</Filter>
+    </ClCompile>
+    <ClCompile Include="Client\RecvData.cpp">
+      <Filter>Файлы ресурсов\Client</Filter>
+    </ClCompile>
+    <ClCompile Include="Client\Socket.cpp">
+      <Filter>Файлы ресурсов\Client</Filter>
+    </ClCompile>
+    <ClCompile Include="Client\Thread.cpp">
+      <Filter>Файлы ресурсов\Client</Filter>
+    </ClCompile>
+    <ClCompile Include="Server\GetCursorHWND.cpp">
+      <Filter>Файлы ресурсов\Server</Filter>
+    </ClCompile>
+    <ClCompile Include="Server\GetMonitoring.cpp">
+      <Filter>Файлы ресурсов\Server</Filter>
+    </ClCompile>
+    <ClCompile Include="Server\Kboard_Input.cpp">
+      <Filter>Файлы ресурсов\Server</Filter>
+    </ClCompile>
+    <ClCompile Include="Server\Mouse_input.cpp">
+      <Filter>Файлы ресурсов\Server</Filter>
+    </ClCompile>
+    <ClCompile Include="Server\SendData.cpp">
+      <Filter>Файлы ресурсов\Server</Filter>
+    </ClCompile>
+    <ClCompile Include="Server\Server.cpp">
+      <Filter>Файлы ресурсов\Server</Filter>
+    </ClCompile>
+    <ClCompile Include="Server\SocketSettings.cpp">
+      <Filter>Файлы ресурсов\Server</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Client\Client.h">
+      <Filter>Файлы ресурсов\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="Client\Monitoring_side.h">
+      <Filter>Файлы ресурсов\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="Client\RecvData.h">
+      <Filter>Файлы ресурсов\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="Client\Socket.h">
+      <Filter>Файлы ресурсов\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="Client\Thread.h">
+      <Filter>Файлы ресурсов\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\_algorithm_.h">
+      <Filter>Файлы ресурсов\Server</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\EntryStruct.h">
+      <Filter>Файлы ресурсов\Server</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\GetCursorHWND.h">
+      <Filter>Файлы ресурсов\Server</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\GetMonitoring.h">
+      <Filter>Файлы ресурсов\Server</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\Input.h">
+      <Filter>Файлы ресурсов\Server</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\MoodConnection.h">
+      <Filter>Файлы ресурсов\Server</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\SendData.h">
+      <Filter>Файлы ресурсов\Server</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\Server.h">
+      <Filter>Файлы ресурсов\Server</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\SocketSettings.h">
+      <Filter>Файлы ресурсов\Server</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
