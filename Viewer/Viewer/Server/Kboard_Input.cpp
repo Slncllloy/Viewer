@@ -23,7 +23,7 @@ void Input_Kboard_Mouse::Kboard_input::Init(std::vector<char>& buf, int kboard_i
         if (bufer[i] != 0)
         {
             buf[kboard_index] = (int)i;
-            std::cout << " keyboard    = "<<(int)i << std::endl;
+            //std::cout << " keyboard    = "<<(int)i << std::endl;
         }
     }
 }
