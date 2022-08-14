@@ -21,11 +21,11 @@ void Input_Kboard_Mouse::Mouse_input::Init(std::vector<char>& buf, int mouse_ind
     if (mouseInfo.rgbButtons[0] != 0)
     {
         buf[mouse_index] = (char)1;
-        std::cout << "right mouse" << std::endl;
+        //std::cout << "right mouse" << std::endl;
     }
     if (mouseInfo.rgbButtons[1] != 0)
     {
         buf[mouse_index] = (char)2;
-        std::cout << "left mouse" << std::endl;
+        //std::cout << "left mouse" << std::endl;
     }
 }
