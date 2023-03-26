@@ -1,5 +1,4 @@
-﻿#include "SocketSettings.h"
-#include "Server.h"
+﻿#include "Server.h"
 
 HWND EntryData::Monitoring::hWindowPaint = NULL;
 int EntryData::Monitoring::resol_C = 0;
@@ -16,7 +15,7 @@ void Start_Socket()
 			std::cout << "Start listenning the locak ports..." << std::endl;
 			Listening_Socket(sData1);
 		}
-		std::cout << "No connect" << std::endl;
+		std::cout << "Try to connect" << std::endl;
 	}
 }
 void Start_ServerModule(HWND hWindowPaint, int resol_C)

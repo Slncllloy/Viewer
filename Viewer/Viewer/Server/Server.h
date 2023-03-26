@@ -3,6 +3,7 @@
 
 #pragma once
 
+#include "SocketSettings.h"
 #include "EntryStruct.h"
 #include "MoodConnection.h"
 
