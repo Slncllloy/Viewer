@@ -6,7 +6,7 @@ void Init_Buffer_Socket_input(std::vector<char>& buf, Input_Kboard_Mouse s_mi)
 	s_mi.kInput.Init(buf, 1);
 	s_mi.mInput.Init(buf, 2);
 
-	Sleep(90);
+	Sleep(1);
 
 }
 void Init_Buffer_Socket_resol_C(std::vector<char>& buf)
