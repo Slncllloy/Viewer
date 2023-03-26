@@ -93,3 +93,23 @@ inline static void ErrorListen()
 	if (res == WSAEOPNOTSUPP)
 		MessageToConsole("WSAEOPNOTSUPP\n");
 };
+inline static void ErrorWSAStarup() 
+{
+	int res = WSAGetLastError();
+
+	MessageToConsole("ERROR_WSAStarup\n");
+
+	if (res == WSASYSNOTREADY)
+		MessageToConsole("WSASYSNOTREADY\n");
+	if (res == WSAVERNOTSUPPORTED)
+		MessageToConsole("WSAVERNOTSUPPORTED\n");
+	if (res == WSAEINPROGRESS)
+		MessageToConsole("WSAEINPROGRESS\n");
+	if (res == WSAEPROCLIM)
+		MessageToConsole("WSAEPROCLIM\n");
+	if (res == WSAEINVAL)
+		MessageToConsole("WSAEINVAL\n");
+	if (res == WSAEFAULT)
+		MessageToConsole("WSAEFAULT\n");
+	
+};

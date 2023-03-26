@@ -4,7 +4,6 @@
 struct EntryData
 {
 public:
-
 	static class Monitoring
 	{
 	public:

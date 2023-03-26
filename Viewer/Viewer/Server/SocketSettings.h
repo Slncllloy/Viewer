@@ -22,12 +22,11 @@ struct ConnectionData
 	SOCKET Socket_Jr = SOCKET();
 	SOCKET Socket_II = SOCKET();
 
-	u_int timeval = 0;
-
 	MoodConnection ValidConnect;
 };
 
+ extern ConnectionData Init_Proto(u_int proto);
  extern ConnectionData Init_Listen_Socket(struct ConnectionData sData, bool nonblock_socket = TRUE);
- extern ConnectionData Init_TCP_Socket();
- extern int Listening_Socket(struct ConnectionData &connection);							
+ extern ConnectionData Init_TCP_Socket(struct ConnectionData sData);
+ extern int OpenServer(struct ConnectionData &connection, int reconnect_time_per_sec = 1);
 

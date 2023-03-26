@@ -1,9 +1,21 @@
 #include "SocketSettings.h"
 
+ConnectionData Init_Proto(u_int proto)
+{
+	ConnectionData sData;
+
+	switch (proto)
+	{
+	case 1:
+		return Init_TCP_Socket(sData);
+	case 2:
+		return sData;
+	}
+}
 ConnectionData Init_Listen_Socket(struct ConnectionData sData,bool nonblock_socket)
 {
 	u_long nb = (u_long)nonblock_socket;
-	int optVal = 1;											//default
+	int optVal = 1;											
 	int size = sizeof(optVal);
 
 	int res = ioctlsocket(sData.Socket_Jr, FIONBIO, &nb); 
@@ -41,9 +53,8 @@ ConnectionData Init_Listen_Socket(struct ConnectionData sData,bool nonblock_sock
 	sData.Result_Jr = SUCCESS_S;
 	return sData;
 }
-ConnectionData Init_TCP_Socket()
+ConnectionData Init_TCP_Socket(ConnectionData sData)
 {
-	ConnectionData sData = { 0 };
 
 	WSAData wsaData;
 	WORD DLLVersion = MAKEWORD(2, 2);
@@ -52,18 +63,19 @@ ConnectionData Init_TCP_Socket()
 	{
 		memset(&sData.SocketAddr, 0, sizeof(sData.SocketAddr));
 
-		sData.SocketAddr.sin_family = AF_INET;
-		sData.SocketAddr.sin_addr.s_addr = INADDR_ANY;
-		sData.SocketAddr.sin_port = htons(1334);
-		sData.Socket_Jr = socket(AF_INET, SOCK_STREAM, NULL);
+		sData.SocketAddr.sin_family =			AF_INET;
+		sData.SocketAddr.sin_addr.s_addr =		INADDR_ANY;
+		sData.SocketAddr.sin_port =				htons(1334);
+		sData.Socket_Jr =						socket(AF_INET, SOCK_STREAM, NULL);
 
 		sData.Result_Jr = SUCCESS_S;
 
 		return Init_Listen_Socket(sData);
 	}
-	OpenError("Error to Init_Socket \n");
+	else
+		ErrorWSAStarup();
 }
-int Listening_Socket(struct ConnectionData& Connection)
+int OpenServer(struct ConnectionData& Connection,int reconnect_time_per_sec)
 {
 	fd_set fr, fw, fe;
 
@@ -71,11 +83,11 @@ int Listening_Socket(struct ConnectionData& Connection)
 
 	while (1)
 	{
-		MessageToConsole("Listening_Socket");
+		MessageToConsole("Listening_Socket	\n");
 
 		struct timeval tv;
-		tv.tv_sec = Connection.timeval;
-		tv.tv_usec = Connection.timeval;
+		tv.tv_sec = reconnect_time_per_sec;
+		tv.tv_usec = reconnect_time_per_sec;
 
 		FD_ZERO(&fr);
 		FD_ZERO(&fw);
@@ -111,7 +123,7 @@ int Listening_Socket(struct ConnectionData& Connection)
 		}
 		else if (Connection.ValidConnect.OpenConnection == 0)
 		{
-			MessageToConsole("NO Connect\n");
+			MessageToConsole("no Connect\n");
 			//std::cout << "NO Connect " << fr.fd_count << std::endl;
 		}
 		if (Connection.ValidConnect.OpenConnection < 0)

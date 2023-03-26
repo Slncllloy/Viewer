@@ -145,7 +145,6 @@
     <ClCompile Include="Client\Socket.cpp" />
     <ClCompile Include="Client\Thread.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Server\DebugConsole.cpp" />
     <ClCompile Include="Server\GetCursorHWND.cpp" />
     <ClCompile Include="Server\GetMonitoring.cpp" />
     <ClCompile Include="Server\Kboard_Input.cpp" />

@@ -11,13 +11,12 @@ void Start_Socket()
 {
 	while (true)
 	{	
-		ConnectionData sData1 = Init_TCP_Socket();
-		sData1.timeval = 1;
+		ConnectionData sData1 = Init_Proto(TCP);
 
-		if (sData1.Result_Jr == SUCCESS_S)
+		if (sData1.Result_Jr != INVALID_SOCKET)
 		{
 			MessageToConsole("Start listenning the locak ports...\n");
-			Listening_Socket(sData1);
+			OpenServer(sData1);
 		}
 		MessageToConsole("Try to connect\n");
 	}
@@ -27,6 +26,7 @@ void Start_ServerModule(HWND hWindowPaint, int resol_C)
 	EntryData::Monitoring mData;                                                                             
 		mData.hWindowPaint = hWindowPaint;
 		mData.resol_C = resol_C;
+
 
 	Start_Socket();
 }
