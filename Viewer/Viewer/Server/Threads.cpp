@@ -2,7 +2,7 @@
 
 void CheckReturnValueThread2(HANDLE thread)
 {
-	if (thread == NULL) { printf("Null Thread"); }
+	if (thread == NULL) { MessageToConsole("Failed Thread");; }
 }
 void OpenThread2(SOCKET Connection)
 {

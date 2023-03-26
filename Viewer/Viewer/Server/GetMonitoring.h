@@ -5,7 +5,7 @@
 #include "MoodConnection.h"
 
 
-#define BITS_PER_PIX 3 //set
+#define BITS_PER_PIX 3
 
 
 struct StretchArhg                                                                                
@@ -21,9 +21,17 @@ struct StretchArhg
 	int height_main_dc = 0;
 
 };
-extern inline void Init_size_main_dc(struct StretchArhg& upArgh, HWND hWindowPaint);
-extern inline void Init_BITMAPINFO(struct StretchArhg& upArgh);
-extern inline void Init_size_sourse_cupture(struct StretchArhg& upArgh);
+
+
+extern void Init_size_main_dc(struct StretchArhg& upArgh, HWND hWindowPaint);
+extern void Init_BITMAPINFO(struct StretchArhg& upArgh);
+extern void Init_size_sourse_cupture(struct StretchArhg& upArgh);
+extern void InitBuffersToStucturing(int iHeightScreen,
+									int iWidthScreen,
+									int Bit_per_pix,
+									struct StructuringDataElements& StucturingData);
+extern void InitStretchScreen(struct StretchArhg& upArgh, HWND hWnd);
+extern void Initialize_struct();
 extern void GetMonitorCapture(SOCKET s);
 
 
