@@ -145,6 +145,7 @@
     <ClCompile Include="Client\Socket.cpp" />
     <ClCompile Include="Client\Thread.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Server\DebugConsole.cpp" />
     <ClCompile Include="Server\GetCursorHWND.cpp" />
     <ClCompile Include="Server\GetMonitoring.cpp" />
     <ClCompile Include="Server\Kboard_Input.cpp" />
@@ -160,6 +161,7 @@
     <ClInclude Include="Client\RecvData.h" />
     <ClInclude Include="Client\Socket.h" />
     <ClInclude Include="Client\Thread.h" />
+    <ClInclude Include="Server\DebugConsole.h" />
     <ClInclude Include="Server\EntryStruct.h" />
     <ClInclude Include="Server\GetCursorHWND.h" />
     <ClInclude Include="Server\GetMonitoring.h" />
