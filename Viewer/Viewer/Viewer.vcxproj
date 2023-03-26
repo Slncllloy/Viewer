@@ -167,6 +167,7 @@
     <ClInclude Include="Server\SendData.h" />
     <ClInclude Include="Server\Server.h" />
     <ClInclude Include="Server\SocketSettings.h" />
+    <ClInclude Include="Server\Threads.h" />
     <ClInclude Include="Server\_algorithm_.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

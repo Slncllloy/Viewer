@@ -104,5 +104,8 @@
     <ClInclude Include="Server\SocketSettings.h">
       <Filter>Файлы ресурсов\Server</Filter>
     </ClInclude>
+    <ClInclude Include="Server\Threads.h">
+      <Filter>Файлы ресурсов\Server</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
