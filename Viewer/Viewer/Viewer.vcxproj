@@ -152,6 +152,7 @@
     <ClCompile Include="Server\SendData.cpp" />
     <ClCompile Include="Server\Server.cpp" />
     <ClCompile Include="Server\SocketSettings.cpp" />
+    <ClCompile Include="Server\Threads.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Client\Client.h" />

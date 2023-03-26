@@ -3,7 +3,7 @@
 
 #define COUNT_THREADS 2
 
-void MultiThread(SOCKET sData)
+void MultiThread3(SOCKET sData)
 {
     HANDLE hThr[COUNT_THREADS];
 
@@ -13,7 +13,7 @@ void MultiThread(SOCKET sData)
 
     WaitForMultipleObjects(COUNT_THREADS, hThr, TRUE, INFINITE);
 }
-void MultiThread2(SOCKET sData)
+void MultiThread4(SOCKET sData)
 {
     std::thread th1(MonitorCapture, sData);
     std::thread th2(RecvData, sData);

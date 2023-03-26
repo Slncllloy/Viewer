@@ -1,26 +1,5 @@
 #include "SocketSettings.h"
-//#include "GetMonitoring.h"     
-#include"SendData.h"
-#include <thread>
 
-void MultiThread(ConnectionData Connection)
-{
-	//HANDLE hThr[2];
-	std::cout << "treads" << std::endl;
-	//hThr[0] = CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)GetMonitorCapture, (LPTHREAD_START_ROUTINE)Connection.MoodConnection, 0, 0);
-	//hThr[1] = CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)Send_Data_Packet, (LPTHREAD_START_ROUTINE)Connection.Socket_II, 0, 0);
-	std::cout << "treads ends" << std::endl;
-
-	//WaitForMultipleObjects(COUNT_THREADS, hThr, TRUE, INFINITE);
-}
-void MultiThread2(ConnectionData sData1)
-{
-	std::thread th1(GetMonitorCapture, sData1.Socket_II);
-	std::thread th2(Send_Data_Packet, sData1.Socket_II);
-	
-	th1.join();
-	th2.join();
-}
 ConnectionData Init_Listen_Socket(struct ConnectionData sData)
 {
 	u_long nb = 1; // режим сокета
@@ -88,7 +67,6 @@ ConnectionData Init_Socket()
 }
 int Listening_Socket(struct ConnectionData& Connection) //struct SocketData &sData
 {
-	//std::vector<SOCKET>sArr(64);
 	fd_set fr, fw, fe;
 
 	struct timeval tv;
@@ -127,7 +105,7 @@ int Listening_Socket(struct ConnectionData& Connection) //struct SocketData &sDa
 
 				if (Connection.Socket_II != FAILED_S)
 				{
-					MultiThread2(Connection);
+					OpenThread2(Connection.Socket_II);
 				}
 
 			}

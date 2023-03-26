@@ -1,10 +1,9 @@
 #pragma once
 #include <winsock2.h>
-#pragma comment(lib, "ws2_32.lib")
-#include "GetMonitoring.h"
 #include <iostream>
+#include "Threads.h"
 
-
+#pragma comment(lib, "ws2_32.lib")
 #pragma warning(disable:4996)
 
 #define COUNT_THREADS 2
@@ -24,9 +23,7 @@ struct ConnectionData
 	MoodConnection ValidConnect;
 };
 
- extern void MultiThread2(struct ConnectionData sData1);
  extern ConnectionData Init_Listen_Socket(struct ConnectionData sData);  //static
  extern ConnectionData Init_Socket();
- extern void MultiThread(ConnectionData sData);
  extern int Listening_Socket(struct ConnectionData &connection);//struct SocketData& sData
 

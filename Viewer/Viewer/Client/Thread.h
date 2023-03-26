@@ -5,7 +5,7 @@
 #include <thread>
 
 
-extern void MultiThread(SOCKET sData);
-extern void MultiThread2(SOCKET sData);
+extern void MultiThread3(SOCKET sData);
+extern void MultiThread4(SOCKET sData);
 
 

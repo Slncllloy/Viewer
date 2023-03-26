@@ -60,6 +60,9 @@
     <ClCompile Include="Server\SocketSettings.cpp">
       <Filter>Файлы ресурсов\Server</Filter>
     </ClCompile>
+    <ClCompile Include="Server\Threads.cpp">
+      <Filter>Файлы ресурсов\Server</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Client\Client.h">
