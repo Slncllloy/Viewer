@@ -28,21 +28,21 @@ int _Queue_(struct StructuringDataElements& alg_Data, std::vector<char>& draw_bu
 		//offset iterator after getting elements
 		alg_Data.iterator = alg_Data.iterator + alg_Data.Recv_count_cells;
 
-		// the ellements in buffer more then buffer
+		// the ellements in buffer (rBuffer) more then buffer
 		if (alg_Data.iterator > alg_Data.Cells_into_full_Packet)
 		{	
-			// Erases a vector and copies the elements to the empty vector
+			// Erases a vector and copies the elements to the empty buffer (cBuffer >> rBuffer)
 			draw_buffer.assign(cycle_buf.begin(), cycle_buf.begin() + alg_Data.Cells_into_full_Packet);
 
-			// Set iterator to start between difference (full buffer - full buffer + getting element)
+			// Set iterator to start between difference (full buffer(rBuffer) - full buffer(rBuffer) + getting element)
 			alg_Data.iterator = alg_Data.iterator - alg_Data.Cells_into_full_Packet;
 
 			// offset to the received elements
-			// getting elements -- in the end of buffer
+			// getting elements -- in the end of buffer (cBuffer)
 
 			cycle_buf.resize(alg_Data.Cells_into_full_Packet + alg_Data.iterator);  
 			// offset to the start receved elements
-			// getting elements -- in the start of buffer
+			// getting elements -- in the start of buffer (cBuffer)
 
 			cycle_buf.resize(alg_Data.Cells_into_full_Packet * 2);
 
