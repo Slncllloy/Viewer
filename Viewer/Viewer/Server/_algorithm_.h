@@ -8,8 +8,8 @@
 
 struct StructuringDataElements
 {
-	int iterator = 0;					// Iteration to elements
-	int Cells_into_full_Packet = 0;		// Size rBuffer
+	int iterator = 0;				// Iteration to elements
+	int Cells_into_full_Packet = 0;			// Size rBuffer
 	int Recv_count_cells = 0;			// Getting elements
 
 	std::vector<char> rBuffer;			// Buffer to be structuring
@@ -17,7 +17,7 @@ struct StructuringDataElements
 };
 int _Queue_(struct StructuringDataElements& alg_Data, std::vector<char>& draw_buffer, std::vector<char>& cycle_buf)
 {
-	//		Structuring the data to the draw buffer
+	//	Structuring the data to the draw buffer
 	//
 	//
 	//
@@ -38,7 +38,7 @@ int _Queue_(struct StructuringDataElements& alg_Data, std::vector<char>& draw_bu
 			alg_Data.iterator = alg_Data.iterator - alg_Data.Cells_into_full_Packet;
 
 			// offset to the received elements
-			//		getting elements in the end of buffer
+			// getting elements in the end of buffer
 
 			cycle_buf.resize(alg_Data.Cells_into_full_Packet + alg_Data.iterator);  
 			// offset to the start receved elements
