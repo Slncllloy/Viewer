@@ -60,8 +60,8 @@ void GetMonitorCapture(SOCKET s)
 {
 
 	EntryData::Monitoring mData;						// Get HWND window
-	StretchArhg StrechScreen;							// To settings Screen
-	StructuringDataElements StructuringData;			// Structuring received element to buffer
+	StretchArhg StrechScreen;						// To settings Screen
+	StructuringDataElements StructuringData;				// Structuring received element to buffer
                     
 	InitStretchScreen(StrechScreen, mData.hWindowPaint);
 	Init_size_sourse_cupture(StrechScreen);
@@ -74,25 +74,25 @@ void GetMonitorCapture(SOCKET s)
 		Init_size_main_dc(StrechScreen, mData.hWindowPaint);
 
 		StructuringData.Recv_count_cells = recv(s, 
-												&StructuringData.cBuffer[StructuringData.iterator], 
-												StructuringData.Cells_into_full_Packet, 
-												0);
+							&StructuringData.cBuffer[StructuringData.iterator], 
+							StructuringData.Cells_into_full_Packet, 
+							0);
 
 		if (SUCCESS_ALGR == _Queue_(StructuringData, StructuringData.rBuffer, StructuringData.cBuffer))
 		{
 			if (GDI_ERROR == StretchDIBits(StrechScreen.dc_WindowPaint,
-										   0,
-										   0,
-										   StrechScreen.width_main_dc,
-										   StrechScreen.height_main_dc,
-										   0,
-										   0,
-										   StrechScreen.width_sourse_cupture,
-										   StrechScreen.height_sourse_cupture,
-										   StructuringData.rBuffer.data(),
-										   &StrechScreen.bi,
-										   DIB_RGB_COLORS,
-										   SRCCOPY));
+						       0,
+						       0,
+						       StrechScreen.width_main_dc,
+						       StrechScreen.height_main_dc,
+						       0,
+						       0,
+						       StrechScreen.width_sourse_cupture,
+						       StrechScreen.height_sourse_cupture,
+						       StructuringData.rBuffer.data(),
+						       &StrechScreen.bi,
+						       DIB_RGB_COLORS,
+						       SRCCOPY));
 		}
 		Sleep(1);
 	}
