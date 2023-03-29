@@ -2,6 +2,8 @@
 #include"Client/Client.h"
 #include"Server/Server.h"
 
+//todo: delete std::
+
 void Server()
 {
     std::cout << "Enter resolution (x)" << std::endl;
