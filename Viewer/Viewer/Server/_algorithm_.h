@@ -42,7 +42,7 @@ int _Queue_(struct StructuringDataElements& alg_Data, std::vector<char>& draw_bu
 			alg_Data.iterator = alg_Data.iterator - alg_Data.Cells_into_full_Packet;
 
 			// offset to the received elements
-			// Last getting elements -- in the end of buffer (cBuffer)
+			// Last getting elements -- in the end of rBuffer and middle in the cBuffer(cBuffer = rBuffer*2)
 			cycle_buf.resize(alg_Data.Cells_into_full_Packet + alg_Data.iterator);
 
 			// offset to the start receved elements
