@@ -12,45 +12,28 @@ ConnectionData Init_Proto(u_int proto)
 		return sData;
 	}
 }
-ConnectionData Init_Listen_Socket(struct ConnectionData sData,bool nonblock_socket)
+ConnectionData Init_Listen_Socket(struct ConnectionData sData, u_long nonblock_socket,char OptValMode, int backlog)
 {
-	u_long nb = (u_long)nonblock_socket;
-	int optVal = 1;											
-	int size = sizeof(optVal);
+ 
+	if (ioctlsocket(sData.Socket_Jr, FIONBIO, &nonblock_socket)  // why work,where is nonblock_socket variable ?
+		!= 0)
+		goto Error;
 
-	int res = ioctlsocket(sData.Socket_Jr, FIONBIO, &nb); 
+	if (setsockopt(sData.Socket_Jr, SOL_SOCKET, SO_REUSEADDR, (char*)&OptValMode, sizeof(OptValMode))
+		< 0)
+		goto Error;
 
-	if (res != 0)
-	{
-		sData.Result_Jr = ERROR_SET_NONBLOCK;
-		ErrorSetNonblock();
-		return sData;
-	}
-	res = setsockopt(sData.Socket_Jr, SOL_SOCKET, SO_REUSEADDR, (const char*)&optVal, size); 
+	if (bind(sData.Socket_Jr, (sockaddr*)&sData.SocketAddr, sizeof(sData.SocketAddr))
+		== INVALID_SOCKET)
+		goto Error;
 
-	if (res < 0)
-	{
-		sData.Result_Jr = ERROR_SETSOCKOPT;
-		ErrorSetNonblock();
-		return sData;
-	}
-	res = bind(sData.Socket_Jr, (sockaddr*)&sData.SocketAddr, sizeof(sData.SocketAddr));
+	if (listen(sData.Socket_Jr, backlog)
+		== INVALID_SOCKET)
+		goto Error;
+	return sData;
 
-	if (res == INVALID_SOCKET)
-	{
-		sData.Result_Jr = ERROR_BINDING;
-		ErrorBind();
-		return sData;
-	}
-	res = listen(sData.Socket_Jr, 100);
-
-	if (res == INVALID_SOCKET)
-	{
-		sData.Result_Jr = ERROR_LISTEN;
-		ErrorListen();
-		return sData;
-	}
-	sData.Result_Jr = SUCCESS_S;
+Error:
+	CheckErrorSocket();
 	return sData;
 }
 ConnectionData Init_TCP_Socket(ConnectionData sData)
@@ -61,8 +44,6 @@ ConnectionData Init_TCP_Socket(ConnectionData sData)
 
 	if (WSAStartup(DLLVersion, &wsaData) == 0)
 	{
-		memset(&sData.SocketAddr, 0, sizeof(sData.SocketAddr));
-
 		sData.SocketAddr.sin_family =			AF_INET;
 		sData.SocketAddr.sin_addr.s_addr =		INADDR_ANY;
 		sData.SocketAddr.sin_port =				htons(1334);
@@ -81,7 +62,7 @@ int OpenServer(struct ConnectionData& Connection,int reconnect_time_per_sec)
 
 	
 
-	while (1)
+	while (1)												//todo: set condition
 	{
 		MessageToConsole("Listening_Socket	\n");
 
@@ -96,13 +77,13 @@ int OpenServer(struct ConnectionData& Connection,int reconnect_time_per_sec)
 		FD_SET(Connection.Socket_Jr, &fr);
 		FD_SET(Connection.Socket_Jr, &fe);
 		
-		Connection.ValidConnect.OpenConnection = select(Connection.Socket_Jr + 1, &fr, nullptr, &fe, &tv);
+		Connection.ValidConnect.OpenConnection = select(Connection.Socket_Jr + 1, &fr, nullptr, &fe, &tv);		//todo: debug.h return
 
 		if (Connection.ValidConnect.OpenConnection > 0)
 		{
-			if (FD_ISSET(Connection.Socket_Jr, &fe))
+			if (FD_ISSET(Connection.Socket_Jr, &fe))							//todo: realize error
 			{
-				MessageToConsole("Error exeption\n");
+				MessageToConsole("Error exeption\n");								
 				//std::cout << "Error exeption " << fr.fd_count << std::endl;
 			}
 			if (FD_ISSET(Connection.Socket_Jr, &fw))

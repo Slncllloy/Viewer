@@ -26,7 +26,10 @@ struct ConnectionData
 };
 
  extern ConnectionData Init_Proto(u_int proto);
- extern ConnectionData Init_Listen_Socket(struct ConnectionData sData, bool nonblock_socket = TRUE);
+ extern ConnectionData Init_Listen_Socket(struct ConnectionData sData, 
+										  u_long nonblock_socket = (u_long)1,
+										  char OptValMode = (char)1, 
+										  int backlog=200);
  extern ConnectionData Init_TCP_Socket(struct ConnectionData sData);
  extern int OpenServer(struct ConnectionData &connection, int reconnect_time_per_sec = 1);
 

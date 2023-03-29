@@ -15,7 +15,7 @@
 
 inline static void MessageToConsole(const char* Message) // todo add "...", add hwnd argument
 {
-	printf(Message);									//(???) set realize
+	printf(Message);									//(???) set realize for choice hwnd 
 };
 inline static void OpenError(const char* Message)
 {
