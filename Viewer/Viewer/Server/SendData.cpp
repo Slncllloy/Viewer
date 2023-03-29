@@ -17,7 +17,6 @@ void Init_Buffer_Socket_resol_C(std::vector<char>& buf)
 }
 void Send_Data_Packet(SOCKET sData)
 {
-	int res = 0;
 	std::vector<char>buf(COUNT_BUFFER_CELLS);
 
 	Input_Kboard_Mouse _input;
@@ -28,8 +27,8 @@ void Send_Data_Packet(SOCKET sData)
 	_input.kInput.createdi();
 	_input.mInput.createdi();
 
-
-	while (res != -1)                                        // todo set condition
+	int res = 0;
+	do
 	{
 		Init_Buffer_Socket_resol_C(buf);
 		Init_Buffer_Socket_input(buf, _input);
@@ -40,9 +39,10 @@ void Send_Data_Packet(SOCKET sData)
 		buf[1] = (char)0;
 		buf[2] = (char)0;
 
-
 		Sleep(1);
-	}
+	} while (res != -1);
+
+	
 	// todo: void Close_Input >> input.h
 	_input.kInput.destroydi();
 	_input.mInput.destroydi();
