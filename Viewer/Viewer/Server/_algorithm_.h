@@ -35,6 +35,7 @@ int _Queue_(struct StructuringDataElements& alg_Data, std::vector<char>& draw_bu
 		if (alg_Data.iterator > alg_Data.Cells_into_full_Packet)
 		{
 			// Copy (cBuffer >> rBuffer)
+			// First screen is empty
 			draw_buffer.assign(cycle_buf.begin(), cycle_buf.begin() + alg_Data.Cells_into_full_Packet);
 
 			// Set iterator to start between difference 
