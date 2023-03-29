@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <winsock.h>
 
+// todo: delete some static 
+// todo Add GUID
 #define SUCCESS_S				 0
 #define ERROR_SET_NONBLOCK		-1
 #define ERROR_SETSOCKOPT		-2
@@ -11,9 +13,9 @@
 #define FAILED_S				-5
 
 
-inline static void MessageToConsole(const char* Message) // todo add "..."
+inline static void MessageToConsole(const char* Message) // todo add "...", add hwnd argument
 {
-	printf(Message);
+	printf(Message);									//(???) set realize
 };
 inline static void OpenError(const char* Message)
 {
@@ -113,3 +115,11 @@ inline static void ErrorWSAStarup()
 		MessageToConsole("WSAEFAULT\n");
 	
 };
+inline static void CheckErrorSocket()
+{
+	ErrorSetNonblock();
+	ErrorSetSockOpt();
+	ErrorBind();
+	ErrorListen();
+	ErrorWSAStarup();
+}
