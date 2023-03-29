@@ -24,6 +24,7 @@ void Send_Data_Packet(SOCKET sData)
 	Cursor_info Cinfo;
 	EntryData::Monitoring mData;
 
+	// todo: void Open_Input >> input.h
 	_input.kInput.createdi();
 	_input.mInput.createdi();
 
@@ -42,8 +43,9 @@ void Send_Data_Packet(SOCKET sData)
 
 		Sleep(1);
 	}
+	// todo: void Close_Input >> input.h
 	_input.kInput.destroydi();
 	_input.mInput.destroydi();
 
-	MoodConnection::OpenConnection = 0;
+	MoodConnection::SignalConnection(0);
 }

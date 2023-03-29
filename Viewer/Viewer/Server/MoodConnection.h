@@ -4,4 +4,8 @@ static struct MoodConnection
 {
 public:
 	static int OpenConnection;
+	static void SignalConnection(int Open)
+	{
+		OpenConnection = Open;
+	}
 };
