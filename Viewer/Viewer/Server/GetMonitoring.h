@@ -25,13 +25,12 @@ struct StretchArhg
 
 extern void Init_size_main_dc(struct StretchArhg& upArgh, HWND hWindowPaint);
 extern void Init_BITMAPINFO(struct StretchArhg& upArgh);
-extern void Init_size_sourse_cupture(struct StretchArhg& upArgh);
+extern void Init_size_sourse_cupture(struct StretchArhg& upArgh, const int resolution);
 extern void InitBuffersToStucturing(int iHeightScreen,
 									int iWidthScreen,
 									int Bit_per_pix,
 									struct StructuringDataElements& StucturingData);
 extern void InitStretchScreen(struct StretchArhg& upArgh, HWND hWnd);
-extern void Initialize_struct();
 extern void GetMonitorCapture(SOCKET s);
 
 

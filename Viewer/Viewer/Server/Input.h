@@ -48,5 +48,15 @@ public:
 
 	Kboard_input kInput;
 	Mouse_input mInput;
+	void Distroy()
+	{
+		kInput.destroydi();
+		mInput.destroydi();
+	}
+	void Create()
+	{
+		kInput.createdi();
+		mInput.createdi();
+	}
 };
 
