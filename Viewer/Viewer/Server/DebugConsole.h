@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <winsock.h>
 
+// todo: close while(s) after error
 // todo: delete some static 
 // todo Add GUID
 #define SUCCESS_S				 0
@@ -15,7 +16,7 @@
 
 inline static void MessageToConsole(const char* Message) // todo add "...", add hwnd argument
 {
-	printf(Message);									//(???) set realize for choice hwnd 
+	printf(Message);									 
 };
 inline static void OpenError(const char* Message)
 {
