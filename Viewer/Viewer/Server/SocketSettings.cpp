@@ -17,24 +17,21 @@ ConnectionData Init_Listen_Socket(struct ConnectionData sData, u_long nonblock_s
  
 	if (ioctlsocket(sData.Socket_Jr, FIONBIO, &nonblock_socket)  // why work,where is nonblock_socket variable ?
 		!= 0)
-		goto Error;
+		ErrorSetNonblock();
 
 	if (setsockopt(sData.Socket_Jr, SOL_SOCKET, SO_REUSEADDR, (char*)&OptValMode, sizeof(OptValMode))
 		< 0)
-		goto Error;
+		ErrorSetSockOpt();
 
 	if (bind(sData.Socket_Jr, (sockaddr*)&sData.SocketAddr, sizeof(sData.SocketAddr))
 		== INVALID_SOCKET)
-		goto Error;
+		ErrorBind();
 
 	if (listen(sData.Socket_Jr, backlog)
 		== INVALID_SOCKET)
-		goto Error;
+		ErrorListen();
 	return sData;
 
-Error:
-	CheckErrorSocket();
-	return sData;
 }
 ConnectionData Init_TCP_Socket(ConnectionData sData)
 {
