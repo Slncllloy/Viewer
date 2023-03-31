@@ -22,8 +22,8 @@ int _Queue_(struct StructuringDataElements& alg_Data, std::vector<char>& draw_bu
 	//	Structuring the data to the draw buffer (rBuffer)
 	//
 	//	When we get some ellements we fill it in to cBuffer to the moment of overflow
-	//	Overflow elements filling to cBuffer
-	//	Copy cBuffer to rBuffer
+	//	Overflow elements filling to rBuffer
+	//	Set cBuffer
 
 	// Some elements getting
 	if (alg_Data.Recv_count_cells > 0)
@@ -34,7 +34,8 @@ int _Queue_(struct StructuringDataElements& alg_Data, std::vector<char>& draw_bu
 		// the ellements in buffer (rBuffer) more then buffer
 		if (alg_Data.iterator > alg_Data.Cells_into_full_Packet)
 		{
-			// Erases a vector and copies the elements to the empty buffer (cBuffer >> rBuffer)
+			// Copy (cBuffer >> rBuffer)
+			// First screen is empty
 			draw_buffer.assign(cycle_buf.begin(), cycle_buf.begin() + alg_Data.Cells_into_full_Packet);
 
 			// Set iterator to start between difference 
@@ -42,11 +43,11 @@ int _Queue_(struct StructuringDataElements& alg_Data, std::vector<char>& draw_bu
 			alg_Data.iterator = alg_Data.iterator - alg_Data.Cells_into_full_Packet;
 
 			// offset to the received elements
-			// First getting elements -- in the end of buffer (cBuffer)
+			// Last getting elements -- in the end of rBuffer and middle in the cBuffer(cBuffer = rBuffer*2)
 			cycle_buf.resize(alg_Data.Cells_into_full_Packet + alg_Data.iterator);
 
 			// offset to the start receved elements
-			// Last getting elements -- in the start of buffer (cBuffer)
+			// First getting elements -- in the start of buffer (cBuffer)
 			cycle_buf.resize(alg_Data.Cells_into_full_Packet * 2);
 
 			return  SUCCESS_ALGR;
