@@ -10,3 +10,8 @@ Some problems: OS only Windows,only for 1920x1080px monitor,resize console Serve
 For using programm go to Viewer/Release/Viewer.exe,
 In client side you should write IPv4 of Enternet Adapter of server,
 In server side just set value resolution;
+
+-----------------------------------------------------------------------
+*Server realization should be in client
+
+*Create white ip
